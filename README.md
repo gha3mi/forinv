@@ -19,7 +19,7 @@ This repository contains a Fortran module for calculating the pseudoinverse of a
 ## Requirements
 To use the `pinverse` module, you need the following:
 
-- Fortran compiler (tested with Intel, NVIDIA or gfortran)
+- Fortran compiler (tested with Intel and NVIDIA)
 - LAPACK or MKL
 
 ## Installation
