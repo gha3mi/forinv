@@ -14,6 +14,7 @@ This repository contains a Fortran module for calculating the pseudoinverse of a
   - [Module Description](#module-description)
   - [Usage](#usage)
   - [Tests](#tests)
+  - [Documentation](#documentation)
   - [Contributing](#contributing)
 -----
 ## Requirements
@@ -98,6 +99,14 @@ Compiler flags: ```-O4 -mtune=native -llapack```
 fpm @gfortran
 ```
 Compiler flags ```-Wno-line-truncation -Ofast -march=native -llapack -lblas```
+
+-----
+
+## Documentation
+To generate the documentation for the `pinverse` module using [ford](https://github.com/Fortran-FOSS-Programmers/ford) run the following command:
+```bash
+ford project.yml
+```
 
 -----
 
