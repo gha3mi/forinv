@@ -51,7 +51,7 @@ The `pinverse` module provides functions and subroutines for calculating the SVD
 -----
 
 ## Usage
-Here is an example of how to use the pinverse module in your Fortran code:
+Here is an example of how to use the `pinverse` module in your Fortran code:
 ```fortran
 program main
 
@@ -73,14 +73,32 @@ end program main
 ```
 ## Tests
 
-The tests directory contains test programs to verify the functionality of the pinverse module. To run the tests using fpm, you can use response files for specific compilers:
+The `tests` directory contains test programs to verify the functionality of the `pinverse` module. To run the tests using `fpm`, you can use response files for specific compilers:
 
+- For Intel Fortran Compiler (ifort):
 ```bash
 fpm @ifort
+```
+Compiler flags: ```-Ofast -xHost -mtune=native -parallel -qmkl=parallel```
+
+- For Intel Fortran Compiler (ifx):
+```bash
 fpm @ifx
+```
+Compiler flags: ```-Ofast -xHost -mtune=native -parallel -qmkl=parallel```
+
+- For NVIDIA Compiler (nvfortran):
+```bash
 fpm @nvidia
+```
+Compiler flags: ```-O4 -mtune=native -llapack```
+
+- For GNU Fortran Compiler (gfortran):
+```bash
 fpm @gfortran
 ```
+Compiler flags ```-Wno-line-truncation -Ofast -march=native -llapack -lblas```
+
 -----
 
 ## Contributing
