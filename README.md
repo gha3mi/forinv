@@ -1,11 +1,13 @@
 # pinverse
 
-This repository contains a Fortran module for calculating the singular value decomposition (SVD) and pseudoinverse of a matrix.============
+This repository contains a Fortran module for calculating the singular value decomposition (SVD) and pseudoinverse of a matrix.
+============
 
 
 ## Table of Contents
 
 - [pinverse](#pinverse)
+- [This repository contains a Fortran module for calculating the singular value decomposition (SVD) and pseudoinverse of a matrix.](#this-repository-contains-a-fortran-module-for-calculating-the-singular-value-decomposition-svd-and-pseudoinverse-of-a-matrix)
   - [Table of Contents](#table-of-contents)
   - [Requirements](#requirements)
   - [Installation](#installation)
