@@ -72,6 +72,8 @@ program main
 
 end program main
 ```
+-----
+
 ## Tests
 
 The `tests` directory contains test programs to verify the functionality of the `pinverse` module. To run the tests using `fpm`, you can use response files for specific compilers:
