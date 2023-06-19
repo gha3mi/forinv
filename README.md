@@ -12,13 +12,14 @@ This repository contains a Fortran module for calculating the pseudoinverse of a
   - [Installation](#installation)
     - [fpm](#fpm)
   - [Module Description](#module-description)
+  - [Usage](#usage)
   - [Tests](#tests)
   - [Contributing](#contributing)
 -----
 ## Requirements
 To use the `pinverse` module, you need the following:
 
-- Fortran compiler (Intel Compiler or gfortran)
+- Fortran compiler (tested with Intel, NVIDIA or gfortran)
 - LAPACK or MKL
 
 ## Installation
@@ -49,6 +50,27 @@ The `pinverse` module provides functions and subroutines for calculating the SVD
 - `pinv`: Function to compute the pseudoinverse of a matrix using the SVD.
 -----
 
+## Usage
+Here is an example of how to use the pinverse module in your Fortran code:
+```fortran
+program main
+
+   use :: kinds
+   use :: pinverse, only: pinv
+
+   implicit none
+
+   ! Declare variables
+   real(rk), dimension(:, :), allocatable :: A, A_pinv
+
+   ! Initialize matrix A
+   ...
+
+   ! Call pseudoinverse function
+   A_pinv = pinv(A)
+
+end program main
+```
 ## Tests
 
 The tests directory contains test programs to verify the functionality of the pinverse module. To run the tests using fpm, you can use response files for specific compilers:
@@ -56,6 +78,7 @@ The tests directory contains test programs to verify the functionality of the pi
 ```bash
 fpm @ifort
 fpm @ifx
+fpm @nvidia
 fpm @gfortran
 ```
 -----
