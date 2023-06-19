@@ -13,8 +13,8 @@ program test2
   integer                               :: m, n     ! Define variables for matrix dimensions
   type(watchtype)                       :: w        ! Define a watchtype object for timing measurements
 
-  m = 10000                  ! Set the number of rows for matrix A
-  n = 1000                   ! Set the number of columns for matrix A
+  m = 1000                   ! Set the number of rows for matrix A
+  n = 100                    ! Set the number of columns for matrix A
   allocate(A(m,n))           ! Allocate memory for matrix A
   call random_number(A)      ! Fill matrix A with random numbers between 0 and 1
 
