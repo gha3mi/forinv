@@ -47,7 +47,7 @@ git = "https://github.com/gha3mi/pinverse.git"
 The `pinverse` module provides functions and subroutines for calculating the SVD and pseudoinverse of a matrix. It includes the following functionalities:
 
 - `svd`: Subroutine to compute the SVD of a matrix.
-- `pinverse`: Function to compute the pseudoinverse of a matrix using the SVD.
+- `pinv`: Function to compute the pseudoinverse of a matrix using the SVD.
 -----
 
 ## Tests
