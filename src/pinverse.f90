@@ -32,16 +32,16 @@ contains
    pure subroutine svd_rel(A, U,S,VT)
 
       ! Inputs:
-      real(rk), dimension(:, :),              intent(in)  :: A    ! Input matrix A  
+      real(rk), dimension(:, :),                      intent(in)  :: A    ! Input matrix A  
 
       ! Outputs:
-      real(rk), dimension(:, :), allocatable, intent(out) :: U    ! Left singular vectors
-      real(rk), dimension(:, :), allocatable, intent(out) :: VT   ! Right singular vectors
-      real(rk), dimension(:),    allocatable, intent(out) :: S    ! Singular values
+      real(rk), dimension(size(A,1), size(A,1)),      intent(out) :: U    ! Left singular vectors
+      real(rk), dimension(size(A,2), size(A,2)),      intent(out) :: VT   ! Right singular vectors
+      real(rk), dimension(min(size(A,1), size(A,2))), intent(out) :: S    ! Singular values
 
       ! Local variables
-      real(rk), dimension(:),    allocatable              :: work ! Work array
-      integer                                             :: m, n, minnm, lwork, info, i, j
+      real(rk), dimension(:), allocatable                         :: work ! Work array
+      integer                                                     :: m, n, lwork, info, i, j
 
       ! External subroutine for calculating the SVD
       interface dgesvd
@@ -60,11 +60,10 @@ contains
       m = size(A, 1)
       n = size(A, 2)
 
-      minnm = max(1,5*min(n,m))
+      ! lwork = max(1,3*min(m,n) + max(m,n),5*min(m,n))
+      lwork = huge(lwork)
 
-      allocate(U(m, m), VT(n, n), S(minnm), work(5 * minnm))
-
-      lwork = max(1,3*min(n,m) + max(n,m),5*min(n,m))
+      allocate(work(max(1,lwork)))
 
       call dgesvd('A', 'A', m, n, A, m, S, U, m, VT, n, work, lwork, info)
 
@@ -82,18 +81,16 @@ contains
       real(rk), dimension(:, :), contiguous, intent(in)  :: A     ! Input matrix A
 
       ! Outputs:
-      real(rk), dimension(:, :), allocatable             :: Apinv ! Pseudoinverse of A
+      real(rk), dimension(size(A,2), size(A,1))          :: Apinv ! Pseudoinverse of A
       
       ! Local variables
-      real(rk), dimension(:, :), allocatable             :: U     ! Left singular vectors
-      real(rk), dimension(:, :), allocatable             :: VT    ! Right singular vectors
-      real(rk), dimension(:),    allocatable             :: S     ! Singular values
+      real(rk), dimension(size(A,1), size(A,1))          :: U    ! Left singular vectors
+      real(rk), dimension(size(A,2), size(A,2))          :: VT   ! Right singular vectors
+      real(rk), dimension(min(size(A,1), size(A,2)))     :: S    ! Singular values
       integer                                            :: m, n, i, j, irank
 
       m = size(A, 1)
       n = size(A, 2)
-
-      allocate(Apinv(n, m))
 
       call svd_rel(A, U,S,VT)
 
