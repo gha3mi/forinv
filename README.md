@@ -38,8 +38,7 @@ Or you can easily include this package as a dependency in your `fpm.toml` file.
 
 ```toml
 [dependencies]
-[dependencies.pinverse]
-git = "https://github.com/gha3mi/pinverse.git"
+pinverse = {git="https://github.com/gha3mi/pinverse.git"}
 ```
 
 -----
