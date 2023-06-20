@@ -32,7 +32,7 @@ contains
    pure subroutine svd_rel(A, U,S,VT)
 
       ! Inputs:
-      real(rk), dimension(:, :),                      intent(in)  :: A    ! Input matrix A  
+      real(rk), dimension(:, :), contiguous,                      intent(in)  :: A    ! Input matrix A  
 
       ! Outputs:
       real(rk), dimension(size(A,1), size(A,1)),      intent(out) :: U    ! Left singular vectors
@@ -65,7 +65,7 @@ contains
 
       allocate(work(max(1,lwork)))
 
-      call dgesvd('A', 'A', m, n, A, m, S, U, m, VT, n, work, lwork, info)
+      call dgesvd('S', 'S', m, n, A, m, S, U, m, VT, n, work, lwork, info)
 
       deallocate(work)
    end subroutine svd_rel
@@ -87,16 +87,18 @@ contains
       real(rk), dimension(size(A,1), size(A,1))          :: U    ! Left singular vectors
       real(rk), dimension(size(A,2), size(A,2))          :: VT   ! Right singular vectors
       real(rk), dimension(min(size(A,1), size(A,2)))     :: S    ! Singular values
-      integer                                            :: m, n, i, j, irank
+      integer                                            :: m, n, i, j, irank, rank
 
       m = size(A, 1)
       n = size(A, 2)
 
       call svd_rel(A, U,S,VT)
 
+      rank = min(m,n)
+      
       Apinv = 0.0_rk
 
-      do irank = 1, min(n,m)
+      do irank = 1, rank
          do j = 1, m
             do i = 1, n
                Apinv(i, j) = Apinv(i, j) + VT(irank, i) * U(j, irank) / S(irank)
