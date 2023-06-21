@@ -40,5 +40,6 @@ program test1
    !===============================================================================
 
    print*, "test1 completed." ! Print a message indicating the completion of the program
+   print*, "--------------------------------------------------------------"
 
 end program test1

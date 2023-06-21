@@ -28,3 +28,8 @@ main       = "test1.f90"
 name       = "test2"
 source-dir = "test"
 main       = "test2.f90"
+
+[[test]]
+name       = "test3"
+source-dir = "test"
+main       = "test3.f90"
