@@ -9,13 +9,13 @@ program test2
   integer                               :: m, n             ! Define variables for matrix dimensions
   real(rk)                              :: rel_err
 
-  m = 1000                   ! Set the number of rows for matrix A
-  n = 100                    ! Set the number of columns for matrix A
-  allocate(A(m,n))           ! Allocate memory for matrix A
-  call random_number(A)      ! Fill matrix A with random numbers between 0 and 1
+  m = 1000                               ! Set the number of rows for matrix A
+  n = 100                                ! Set the number of columns for matrix A
+  allocate(A(m,n),Ainv1(n,m),Ainv2(n,m)) ! Allocate memory for matrix A
+  call random_number(A)                  ! Fill matrix A with random numbers between 0 and 1
 
-  Ainv1 = pinv(A*10)         ! Calculate the matrix inverse of A using the 'pinv' function
-  Ainv2 = pinv(A*10)         ! Calculate the matrix inverse of A using the 'pinv' function
+  Ainv1 = pinv(A*10)                     ! Calculate the matrix inverse of A using the 'pinv' function
+  Ainv2 = pinv(A*10)                     ! Calculate the matrix inverse of A using the 'pinv' function
 
   rel_err = norm2(Ainv1 - Ainv2)/norm2(Ainv1)
 

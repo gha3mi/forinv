@@ -42,7 +42,7 @@ contains
       ! Local variables
       real(rk)                                                    :: work1(1) ! memory allocation query
       real(rk), dimension(:), allocatable                         :: work     ! Work array
-      integer                                                     :: m, n, lwork, info, i, j
+      integer                                                     :: m, n, lwork, info
 
       ! External subroutine for calculating the SVD
       interface dgesvd
