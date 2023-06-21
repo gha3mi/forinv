@@ -32,7 +32,7 @@ contains
    pure subroutine svd_rel(A, U,S,VT)
 
       ! Inputs:
-      real(rk), dimension(:, :), contiguous,                      intent(in)  :: A    ! Input matrix A  
+      real(rk), dimension(:, :), contiguous,          intent(in)  :: A    ! Input matrix A  
 
       ! Outputs:
       real(rk), dimension(size(A,1), size(A,1)),      intent(out) :: U    ! Left singular vectors
@@ -40,7 +40,8 @@ contains
       real(rk), dimension(min(size(A,1), size(A,2))), intent(out) :: S    ! Singular values
 
       ! Local variables
-      real(rk), dimension(:), allocatable                         :: work ! Work array
+      real(rk)                                                    :: work1(1) ! memory allocation query
+      real(rk), dimension(:), allocatable                         :: work     ! Work array
       integer                                                     :: m, n, lwork, info, i, j
 
       ! External subroutine for calculating the SVD
@@ -59,11 +60,11 @@ contains
 
       m = size(A, 1)
       n = size(A, 2)
-
-      ! lwork = max(1,3*min(m,n) + max(m,n),5*min(m,n))
-      lwork = huge(lwork)
-
-      allocate(work(max(1,lwork)))
+      
+      ! Calculate the optimal size of the work array
+      call dgesvd('S', 'S', m, n, A, m, S, U, m, VT, n, work1, -1, info)
+      lwork = nint(work1(1))
+      allocate(work(lwork))
 
       call dgesvd('S', 'S', m, n, A, m, S, U, m, VT, n, work, lwork, info)
 
