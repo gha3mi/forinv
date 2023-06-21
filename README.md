@@ -81,19 +81,19 @@ The `tests` directory contains test programs to verify the functionality of the 
 ```bash
 fpm @ifort
 ```
-Compiler flags: ```-Ofast -xHost -mtune=native -parallel -qmkl=parallel```
+Compiler flags: ```-Ofast -xHost -mtune=native -qopenmp -parallel -qmkl=parallel```
 
 - For Intel Fortran Compiler (ifx):
 ```bash
 fpm @ifx
 ```
-Compiler flags: ```-Ofast -xHost -mtune=native -parallel -qmkl=parallel```
+Compiler flags: ```-Ofast -xHost -mtune=native -qopenmp -fopenmp-target-do-concurrent -parallel -qmkl=parallel```
 
 - For NVIDIA Compiler (nvfortran):
 ```bash
 fpm @nvidia
 ```
-Compiler flags: ```-O4 -mtune=native -llapack```
+Compiler flags: ```-O4 -mtune=native -stdpar=gpu,multicore -llapack```
 
 - For GNU Fortran Compiler (gfortran):
 ```bash
