@@ -17,7 +17,7 @@ implicit-external = false
 source-form       = "free"
 
 [dependencies]
-kinds       = {git="https://github.com/gha3mi/kinds.git"}
+forsvd      = {git="https://github.com/gha3mi/forsvd.git"}
 M_stopwatch = {git="https://github.com/urbanjost/M_stopwatch.git"}
 
 [[test]]
