@@ -99,12 +99,8 @@ contains
       
       Apinv = 0.0_rk
 
-      do irank = 1, rank
-         do j = 1, m
-            do i = 1, n
-               Apinv(i, j) = Apinv(i, j) + VT(irank, i) * U(j, irank) / S(irank)
-            end do
-         end do
+      do concurrent (irank = 1:rank, j = 1:m, i = 1:n) shared(Apinv, VT, U, S, rank, m , n)
+         Apinv(i, j) = Apinv(i, j) + VT(irank, i) * U(j, irank) / S(irank)
       end do
 
    end function pinverse_rel
