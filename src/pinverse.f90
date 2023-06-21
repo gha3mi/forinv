@@ -76,10 +76,11 @@ contains
    !===============================================================================
    !> author: Seyed Ali Ghasemi
    !> Calculates the pseudoinverse of a matrix A using the SVD.
-   pure function pinverse_rel(A) result(Apinv)
+   pure function pinverse_rel(A, tol) result(Apinv)
 
       ! Inputs:
       real(rk), dimension(:, :), contiguous, intent(in)  :: A     ! Input matrix A
+      real(rk), intent(in), optional                     :: tol
 
       ! Outputs:
       real(rk), dimension(size(A,2), size(A,1))          :: Apinv ! Pseudoinverse of A
@@ -95,8 +96,12 @@ contains
 
       call svd(A, U,S,VT)
 
-      rank = min(m,n)
-      
+      if (.not. present(tol)) then
+         rank = min(m,n)
+      else
+         rank = count(S > tol)
+      end if
+
       Apinv = 0.0_rk
 
       do irank = 1, rank
