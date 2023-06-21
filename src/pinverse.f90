@@ -93,14 +93,18 @@ contains
       m = size(A, 1)
       n = size(A, 2)
 
-      call svd_rel(A, U,S,VT)
+      call svd(A, U,S,VT)
 
       rank = min(m,n)
       
       Apinv = 0.0_rk
 
-      do concurrent (irank = 1:rank, j = 1:m, i = 1:n) shared(Apinv, VT, U, S, rank, m , n)
-         Apinv(i, j) = Apinv(i, j) + VT(irank, i) * U(j, irank) / S(irank)
+      do irank = 1, rank
+         do j = 1, m
+            do i = 1, n
+               Apinv(i, j) = Apinv(i, j) + VT(irank, i) * U(j, irank) / S(irank)
+            end do
+         end do
       end do
 
    end function pinverse_rel
