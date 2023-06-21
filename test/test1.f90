@@ -1,7 +1,7 @@
 program test1
 
-  ! This Fortran test code demonstrates the usage of the pinv function to calculate the matrix inverse&
-  ! and verifies the results by comparing them with expected values obtained from MATLAB.
+   ! This Fortran test code demonstrates the usage of the pinv function to calculate the matrix inverse&
+   ! and verifies the results by comparing them with expected values obtained from MATLAB.
 
    use :: kinds                ! Import the module 'kinds' for precision types
    use :: pinverse, only: pinv ! Import only the 'pinv' function from the 'pinverse' module
@@ -10,6 +10,7 @@ program test1
 
    real(rk), dimension(4,3) :: A           ! Define a 4x3 matrix A
    real(rk), dimension(3,4) :: Ainv, AinvM ! Define matrices Ainv and AinvM
+   real(rk)                 :: rel_err
 
    !===============================================================================
    ! Initialize matrix A with values
@@ -35,11 +36,17 @@ program test1
 
 
    !===============================================================================
-  ! Calculate the relative error between MATLAB and Fortran results
-   print*,"relative error:", norm2(Ainv - AinvM)/norm2(AinvM)
-   !===============================================================================
+   ! Calculate the relative error between MATLAB and Fortran results
+   rel_err = norm2(Ainv - AinvM)/norm2(AinvM)
 
-   print*, "test1 completed." ! Print a message indicating the completion of the program
-   print*, "--------------------------------------------------------------"
+   print *, "Relative error:", rel_err
+   if (rel_err < 1e-13_rk) then
+      print *, "Test 1 passed."
+      print*,""
+   else
+      print *, "Test 1 failed!"
+      print*,""
+   end if
+   !===============================================================================
 
 end program test1
