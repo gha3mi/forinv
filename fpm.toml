@@ -17,8 +17,8 @@ implicit-external = false
 source-form       = "free"
 
 [dependencies]
-forsvd      = {git="https://github.com/gha3mi/forsvd.git"}
-M_stopwatch = {git="https://github.com/urbanjost/M_stopwatch.git"}
+forsvd  = {git="https://github.com/gha3mi/forsvd.git"}
+fortime = {git="https://github.com/gha3mi/fortime.git"}
 
 [[test]]
 name       = "test1"
@@ -29,3 +29,8 @@ main       = "test1.f90"
 name       = "test2"
 source-dir = "test"
 main       = "test2.f90"
+
+[[test]]
+name       = "test3"
+source-dir = "test"
+main       = "test3.f90"
