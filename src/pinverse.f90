@@ -22,7 +22,11 @@ contains
    !===============================================================================
    !> author: Seyed Ali Ghasemi
    !> Calculates the pseudoinverse of a matrix A.
+#if defined (PURE)
    pure function pinv_rel(A, method, tol) result(Apinv)
+#elif defined (IMPURE)
+   impure function pinv_rel(A, method, tol) result(Apinv)
+#endif
 
       ! Inputs:
       real(rk),     dimension(:, :), contiguous, intent(in) :: A
@@ -53,7 +57,11 @@ contains
    !===============================================================================
    !> author: Seyed Ali Ghasemi
    !> Calculates the pseudoinverse of a matrix A using the SVD.
+#if defined (PURE)
    pure function pinvSVD_rel(A, method, tol) result(Apinv)
+#elif defined (IMPURE)
+   impure function pinvSVD_rel(A, method, tol) result(Apinv)
+#endif
 
       ! Inputs:
       real(rk), dimension(:, :), contiguous, intent(in)  :: A     ! Input matrix A
@@ -97,7 +105,11 @@ contains
    !===============================================================================
    !> author: ZUO Zhihua, Seyed Ali Ghasemi
    !> Calculates the pseudoinverse of a matrix A using the LU decomposition.
+#if defined (PURE)
    pure function pinvLU_rel(A) result(Apinv)
+#elif defined (IMPURE)
+   impure function pinvLU_rel(A) result(Apinv)
+#endif
 
       ! Inputs:
       real(rk), dimension(:, :), contiguous, intent(in) :: A     ! Input matrix A
@@ -122,7 +134,11 @@ contains
    !===============================================================================
    !> author: ZUO Zhihua, Seyed Ali Ghasemi
    !> Calculates the inverse of a matrix A using the LU decomposition.
+#if defined (PURE)
    pure function invLU_rel(A) result(Ainv)
+#elif defined (IMPURE)
+   impure function invLU_rel(A) result(Ainv)
+#endif
 
       ! Inputs:
       real(rk), dimension(:, :), contiguous, intent(in) :: A     ! Input matrix A
@@ -136,7 +152,11 @@ contains
 
       ! External subroutine for calculating the inverse of a matrix A using the LU decomposition.
       interface
+#if defined (PURE)
          pure subroutine dgetrf(f_m, f_n, f_a, f_lda, f_ipiv, f_info)
+#elif defined (IMPURE)
+         impure subroutine dgetrf(f_m, f_n, f_a, f_lda, f_ipiv, f_info)
+#endif
             import rk
             integer,  intent(in)    :: f_m
             integer,  intent(in)    :: f_n
@@ -145,7 +165,11 @@ contains
             integer,  intent(out)   :: f_info
             real(rk), intent(inout) :: f_a(f_lda, *)
          end subroutine dgetrf
+#if defined (PURE)
          pure subroutine dgetri(f_n, f_a, f_lda, f_ipiv, f_work, f_lwork, f_info)
+#elif defined (IMPURE)
+         impure subroutine dgetri(f_n, f_a, f_lda, f_ipiv, f_work, f_lwork, f_info)
+#endif
             import rk
             integer,  intent(in)    :: f_n
             integer,  intent(in)    :: f_lda
@@ -168,7 +192,11 @@ contains
    !===============================================================================
    !> author: ZUO Zhihua, Seyed Ali Ghasemi
    !> Calculates the matrix-matrix product of two matrices A and B.
+#if defined (PURE)
    pure function gemm(A, B) result(C)
+#elif defined (IMPURE)
+   impure function gemm(A, B) result(C)
+#endif
 
       ! Inputs:
       real(rk), dimension(:, :), contiguous, intent(in) :: A     ! Input matrix A
@@ -182,7 +210,11 @@ contains
 
       ! External subroutine for calculating the matrix-matrix product of two matrices A and B.
       interface
+#if defined (PURE)
          pure subroutine dgemm(f_transa, f_transb, f_m, f_n, f_k, f_alpha, f_a, f_lda, f_b, f_ldb, f_beta, f_c, f_ldc)
+#elif defined (IMPURE)
+         impure subroutine dgemm(f_transa, f_transb, f_m, f_n, f_k, f_alpha, f_a, f_lda, f_b, f_ldb, f_beta, f_c, f_ldc)
+#endif
             import rk
             integer,   intent(in)    :: f_ldc
             integer,   intent(in)    :: f_ldb
