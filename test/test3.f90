@@ -3,9 +3,9 @@ program test3
   ! This Fortran test code demonstrates the usage of the pinv function to calculate the matrix inverse
   ! of a randomly generated matrix.
 
-  use :: kinds                 ! Import the module 'kinds' for precision types
-  use :: pinverse, only: pinv  ! Import only the 'pinv' function from the 'pinverse' module
-  use :: fortime
+  use kinds                 ! Import the module 'kinds' for precision types
+  use forinv, only: pinv    ! Import only the 'pinv' function from the 'forinv' module
+  use fortime
 
   implicit none
 

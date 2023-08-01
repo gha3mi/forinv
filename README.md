@@ -1,62 +1,38 @@
-# pinverse
-This repository contains a Fortran module for calculating the pseudoinverse of a matrix using singular value decomposition (SVD).
+[![GitHub](https://img.shields.io/badge/GitHub-ForInv-blue.svg?style=social&logo=github)](https://github.com/gha3mi/forinv)
+[![Version](https://img.shields.io/github/v/tag/gha3mi/forinv?color=blue&logo=github&style=flat)](https://github.com/gha3mi/forinv/releases)
+[![Documentation](https://img.shields.io/badge/ford-Documentation%20-blueviolet.svg)](https://gha3mi.github.io/forinv/)
+[![License](https://img.shields.io/github/license/gha3mi/forinv?color=green)](https://github.com/gha3mi/forinv/blob/main/LICENSE)
+[![Build](https://github.com/gha3mi/forinv/actions/workflows/ci.yml/badge.svg)](https://github.com/gha3mi/forinv/actions/workflows/ci.yml)
 
------
+<img alt="ForInv" src="https://github.com/gha3mi/forinv/raw/main/media/logo.png" width="750">
+
+**ForInv**: A Fortran library for inverse and pseudo-inverse calculations.
 
 
-## Table of Contents
-
-- [pinverse](#pinverse)
-  - [Table of Contents](#table-of-contents)
-  - [Requirements](#requirements)
-  - [Installation](#installation)
-    - [fpm](#fpm)
-  - [Module Description](#module-description)
-  - [Usage](#usage)
-  - [Tests](#tests)
-  - [Documentation](#documentation)
-  - [Contributing](#contributing)
------
 ## Requirements
-To use the `pinverse` module, you need the following:
+To use the `forinv` module, you need the following:
 
-- Fortran compiler (tested with Intel and NVIDIA)
+- Fortran compiler
 - LAPACK or MKL
 
-## Installation
+## fpm dependency
 
-### fpm
-pinverse can be cloned and then built using [fpm](https://github.com/fortran-lang/fpm), following the instructions provided in the documentation available on Fortran Package Manager.
-
-```bash
-git clone https://github.com/gha3mi/pinverse.git
-cd pinvers
-fpm install --prefix .
-```
-
-Or you can easily include this package as a dependency in your `fpm.toml` file.
+If you want to use `ForInv` as a dependency in your own fpm project,
+you can easily include it by adding the following line to your `fpm.toml` file:
 
 ```toml
 [dependencies]
-pinverse = {git="https://github.com/gha3mi/pinverse.git"}
+forinv = {git="https://github.com/gha3mi/forinv.git"}
 ```
 
------
-## Module Description
-
-The `pinverse` module provides functions and subroutines for calculating the SVD and pseudoinverse of a matrix. It includes the following functionalities:
-
-- `svd`: Subroutine to compute the SVD of a matrix.
-- `pinv`: Function to compute the pseudoinverse of a matrix using the SVD.
------
-
 ## Usage
-Here is an example of how to use the `pinverse` module in your Fortran code:
+
+Here is an example of how to use the `forinv` module in your Fortran code:
 ```fortran
 program main
 
-   use :: kinds
-   use :: pinverse, only: pinv
+   use kinds
+   use forinv, only: pinv
 
    implicit none
 
@@ -71,46 +47,52 @@ program main
 
 end program main
 ```
------
 
-## Tests
+## How to run tests and examples
 
-The `tests` directory contains test programs to verify the functionality of the `pinverse` module. To run the tests using `fpm`, you can use response files for specific compilers:
+**Clone the repository:**
 
-- For Intel Fortran Compiler (ifort):
-```bash
-fpm @ifort
-```
-Compiler flags: ```-Ofast -xHost -mtune=native -qopenmp -parallel -qmkl=parallel```
+You can clone the `ForInv` repository from GitHub using the following command:
 
-- For Intel Fortran Compiler (ifx):
-```bash
-fpm @ifx
-```
-Compiler flags: ```-Ofast -xHost -mtune=native -qopenmp -fopenmp-target-do-concurrent -parallel -qmkl=parallel```
-
-- For NVIDIA Compiler (nvfortran):
-```bash
-fpm @nvidia
-```
-Compiler flags: ```-O4 -mtune=native -stdpar=gpu,multicore -llapack```
-
-- For GNU Fortran Compiler (gfortran):
-```bash
-fpm @gfortran
-```
-Compiler flags ```-Wno-line-truncation -Ofast -march=native -llapack -lblas```
-
------
-
-## Documentation
-To generate the documentation for the `pinverse` module using [ford](https://github.com/Fortran-FOSS-Programmers/ford) run the following command:
-```bash
-ford project.yml
+```shell
+git clone https://github.com/gha3mi/forinv.git
 ```
 
------
+```shell
+cd forinv
+```
+
+**Run tests:**
+
+To set the stack size to unlimited, use the following command: `ulimit -s unlimited`.
+
+```shell
+fpm @gfortran-test
+```
+
+```shell
+fpm @ifort-test
+```
+
+```shell
+fpm @ifx-test
+```
+
+```shell
+fpm @nvfortran-test
+```
+
+## API documentation
+
+The most up-to-date API documentation for the master branch is available
+[here](https://gha3mi.github.io/forinv/).
+To generate the API documentation for `ForInv` using
+[ford](https://github.com/Fortran-FOSS-Programmers/ford) run the following
+command:
+
+```shell
+ford ford.yml
+```
 
 ## Contributing
-
-Contributions to pinverse are welcome! If you find any issues or would like to suggest improvements, please open an issue or submit a pull request.
+Contributions to `ForInv` are welcome! If you find any issues or would like to suggest improvements, please open an issue.

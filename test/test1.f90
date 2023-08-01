@@ -3,8 +3,8 @@ program test1
    ! This Fortran test code demonstrates the usage of the pinv function to calculate the matrix inverse&
    ! and verifies the results by comparing them with expected values obtained from MATLAB.
 
-   use :: kinds                ! Import the module 'kinds' for precision types
-   use :: pinverse, only: pinv ! Import only the 'pinv' function from the 'pinverse' module
+   use kinds                ! Import the module 'kinds' for precision types
+   use forinv, only: pinv   ! Import only the 'pinv' function from the 'forinv' module
 
    implicit none
 

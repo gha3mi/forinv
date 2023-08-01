@@ -1,16 +1,19 @@
-name       = "pinverse"
-version    = "0.1.0"
-license    = "license"
+name       = "forinv"
+version    = "VERSION"
 author     = "Seyed Ali Ghasemi"
 maintainer = "info@gha3mi.com"
 copyright  = "Copyright 2023, Seyed Ali Ghasemi"
+license    = "LICENSE"
+
 [build]
 auto-executables = false
 auto-tests       = false
 auto-examples    = false
 module-naming    = false
+
 [install]
-library = false
+library = true
+
 [fortran]
 implicit-typing   = false
 implicit-external = false

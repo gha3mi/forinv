@@ -1,9 +1,9 @@
-module pinverse
+module forinv
 
    !This module provides functions and subroutines for pseudoinverse calculations.
 
-   use :: kinds
-   use :: forsvd, only: svd
+   use kinds
+   use forsvd, only: svd
 
    implicit none
 
@@ -241,4 +241,4 @@ contains
    end function gemm
    !===============================================================================
 
-end module pinverse
+end module forinv
