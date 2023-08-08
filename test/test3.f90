@@ -1,10 +1,10 @@
 program test3
 
-  ! This Fortran test code demonstrates the usage of the pinv function to calculate the matrix inverse
+  ! This Fortran test code demonstrates the usage of the inv function to calculate the matrix inverse
   ! of a randomly generated matrix.
 
   use kinds                 ! Import the module 'kinds' for precision types
-  use forinv, only: pinv    ! Import only the 'pinv' function from the 'forinv' module
+  use forinv, only: inv     ! Import only the 'inv' function from the 'forinv' module
   use fortime
 
   implicit none
@@ -20,13 +20,13 @@ program test3
 
   call timer_start(w)
 
-  Ainv = pinv(A*10)          ! Calculate the matrix inverse of A using the 'pinv' function
+  Ainv = inv(A*10)          ! Calculate the matrix inverse of A using the 'inv' function
 
   call timer_stop(w,message=' Elapsed time (2000*200 , gesvd):')
 
   call timer_start(w)
 
-  Ainv = pinv(A*10, method='getrf')          ! Calculate the matrix inverse of A using the 'pinv' function and the getrf method
+  Ainv = inv(A*10, method='getrf')          ! Calculate the matrix inverse of A using the 'inv' function and the getrf method
 
   call timer_stop(w,message=' Elapsed time (2000*200 , getrf):')
 
@@ -40,13 +40,13 @@ program test3
 
   call timer_start(w)
 
-  Ainv = pinv(A*10)           ! Calculate the matrix inverse of A using the 'pinv' function
+  Ainv = inv(A*10)           ! Calculate the matrix inverse of A using the 'inv' function
 
   call timer_stop(w,message=' Elapsed time (2000*1800, gesvd):')
 
   call timer_start(w)
 
-  Ainv = pinv(A*10, method='getrf')          ! Calculate the matrix inverse of A using the 'pinv' function and the getrf method
+  Ainv = inv(A*10, method='getrf')          ! Calculate the matrix inverse of A using the 'inv' function and the getrf method
 
   call timer_stop(w,message=' Elapsed time (2000*1800, getrf):')
 

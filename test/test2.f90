@@ -1,7 +1,7 @@
 program test2
 
   use kinds                 ! Import the module 'kinds' for precision types
-  use forinv, only: pinv    ! Import only the 'pinv' function from the 'forinv' module
+  use forinv, only: inv     ! Import only the 'inv' function from the 'forinv' module
 
   implicit none
 
@@ -14,8 +14,8 @@ program test2
   allocate(A(m,n),Ainv1(n,m),Ainv2(n,m)) ! Allocate memory for matrix A
   call random_number(A)                  ! Fill matrix A with random numbers between 0 and 1
 
-  Ainv1 = pinv(A*10)                     ! Calculate the matrix inverse of A using the 'pinv' function
-  Ainv2 = pinv(A*10)                     ! Calculate the matrix inverse of A using the 'pinv' function
+  Ainv1 = inv(A*10)                     ! Calculate the matrix inverse of A using the 'inv' function
+  Ainv2 = inv(A*10)                     ! Calculate the matrix inverse of A using the 'inv' function
 
   rel_err = norm2(Ainv1 - Ainv2)/norm2(Ainv1)
 
