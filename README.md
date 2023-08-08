@@ -32,18 +32,18 @@ Here is an example of how to use the `forinv` module in your Fortran code:
 program main
 
    use kinds
-   use forinv, only: pinv
+   use forinv, only: inv
 
    implicit none
 
    ! Declare variables
-   real(rk), dimension(:, :), allocatable :: A, A_pinv
+   real(rk), dimension(:, :), allocatable :: A, A_inv
 
    ! Initialize matrix A
    ...
 
    ! Call pseudoinverse function
-   A_pinv = pinv(A)
+   A_inv = inv(A)
 
 end program main
 ```
