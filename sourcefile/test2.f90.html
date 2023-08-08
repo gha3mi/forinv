@@ -305,7 +305,7 @@ large graphs.</div>
     <div class="hl"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="k">program </span><span class="n">test2</span><span class="w"></span>
 <a id="ln-2" name="ln-2" href="#ln-2"></a>
 <a id="ln-3" name="ln-3" href="#ln-3"></a><span class="w">  </span><span class="k">use </span><span class="n">kinds</span><span class="w">                 </span><span class="c">! Import the module &#39;kinds&#39; for precision types</span>
-<a id="ln-4" name="ln-4" href="#ln-4"></a><span class="w">  </span><span class="k">use </span><span class="n">forinv</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">pinv</span><span class="w">    </span><span class="c">! Import only the &#39;pinv&#39; function from the &#39;forinv&#39; module</span>
+<a id="ln-4" name="ln-4" href="#ln-4"></a><span class="w">  </span><span class="k">use </span><span class="n">forinv</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">inv</span><span class="w">     </span><span class="c">! Import only the &#39;inv&#39; function from the &#39;forinv&#39; module</span>
 <a id="ln-5" name="ln-5" href="#ln-5"></a>
 <a id="ln-6" name="ln-6" href="#ln-6"></a><span class="w">  </span><span class="k">implicit none</span>
 <a id="ln-7" name="ln-7" href="#ln-7"></a>
@@ -318,8 +318,8 @@ large graphs.</div>
 <a id="ln-14" name="ln-14" href="#ln-14"></a><span class="w">  </span><span class="k">allocate</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">),</span><span class="n">Ainv1</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">),</span><span class="n">Ainv2</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">))</span><span class="w"> </span><span class="c">! Allocate memory for matrix A</span>
 <a id="ln-15" name="ln-15" href="#ln-15"></a><span class="w">  </span><span class="k">call </span><span class="nb">random_number</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w">                  </span><span class="c">! Fill matrix A with random numbers between 0 and 1</span>
 <a id="ln-16" name="ln-16" href="#ln-16"></a>
-<a id="ln-17" name="ln-17" href="#ln-17"></a><span class="w">  </span><span class="n">Ainv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pinv</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span><span class="w">                     </span><span class="c">! Calculate the matrix inverse of A using the &#39;pinv&#39; function</span>
-<a id="ln-18" name="ln-18" href="#ln-18"></a><span class="w">  </span><span class="n">Ainv2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pinv</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span><span class="w">                     </span><span class="c">! Calculate the matrix inverse of A using the &#39;pinv&#39; function</span>
+<a id="ln-17" name="ln-17" href="#ln-17"></a><span class="w">  </span><span class="n">Ainv1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span><span class="w">                     </span><span class="c">! Calculate the matrix inverse of A using the &#39;inv&#39; function</span>
+<a id="ln-18" name="ln-18" href="#ln-18"></a><span class="w">  </span><span class="n">Ainv2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span><span class="w">                     </span><span class="c">! Calculate the matrix inverse of A using the &#39;inv&#39; function</span>
 <a id="ln-19" name="ln-19" href="#ln-19"></a>
 <a id="ln-20" name="ln-20" href="#ln-20"></a><span class="w">  </span><span class="n">rel_err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">norm2</span><span class="p">(</span><span class="n">Ainv1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Ainv2</span><span class="p">)</span><span class="o">/</span><span class="nb">norm2</span><span class="p">(</span><span class="n">Ainv1</span><span class="p">)</span><span class="w"></span>
 <a id="ln-21" name="ln-21" href="#ln-21"></a>
@@ -355,7 +355,7 @@ large graphs.</div>
             <p class="text-right">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-08-01T20:34:08.898843             </p>
+ on 2023-08-08T07:36:51.146729             </p>
           </div>
         </div>
         <br>

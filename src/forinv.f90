@@ -1,6 +1,6 @@
 module forinv
 
-   !This module provides functions and subroutines for pseudoinverse calculations.
+   !! This module provides functions and subroutines for inverse and pseudo-inverse calculations.
 
    use kinds
    use forsvd, only: svd
@@ -12,7 +12,7 @@ module forinv
    public :: pinv
 
    !===============================================================================
-   interface pinv
+   interface inv
       procedure :: pinv_rel
    end interface
    !===============================================================================

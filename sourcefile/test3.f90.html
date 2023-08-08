@@ -304,11 +304,11 @@ large graphs.</div>
       <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="hl"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="k">program </span><span class="n">test3</span><span class="w"></span>
 <a id="ln-2" name="ln-2" href="#ln-2"></a>
-<a id="ln-3" name="ln-3" href="#ln-3"></a><span class="w">  </span><span class="c">! This Fortran test code demonstrates the usage of the pinv function to calculate the matrix inverse</span>
+<a id="ln-3" name="ln-3" href="#ln-3"></a><span class="w">  </span><span class="c">! This Fortran test code demonstrates the usage of the inv function to calculate the matrix inverse</span>
 <a id="ln-4" name="ln-4" href="#ln-4"></a><span class="w">  </span><span class="c">! of a randomly generated matrix.</span>
 <a id="ln-5" name="ln-5" href="#ln-5"></a>
 <a id="ln-6" name="ln-6" href="#ln-6"></a><span class="w">  </span><span class="k">use </span><span class="n">kinds</span><span class="w">                 </span><span class="c">! Import the module &#39;kinds&#39; for precision types</span>
-<a id="ln-7" name="ln-7" href="#ln-7"></a><span class="w">  </span><span class="k">use </span><span class="n">forinv</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">pinv</span><span class="w">    </span><span class="c">! Import only the &#39;pinv&#39; function from the &#39;forinv&#39; module</span>
+<a id="ln-7" name="ln-7" href="#ln-7"></a><span class="w">  </span><span class="k">use </span><span class="n">forinv</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">inv</span><span class="w">     </span><span class="c">! Import only the &#39;inv&#39; function from the &#39;forinv&#39; module</span>
 <a id="ln-8" name="ln-8" href="#ln-8"></a><span class="w">  </span><span class="k">use </span><span class="n">fortime</span><span class="w"></span>
 <a id="ln-9" name="ln-9" href="#ln-9"></a>
 <a id="ln-10" name="ln-10" href="#ln-10"></a><span class="w">  </span><span class="k">implicit none</span>
@@ -324,13 +324,13 @@ large graphs.</div>
 <a id="ln-20" name="ln-20" href="#ln-20"></a>
 <a id="ln-21" name="ln-21" href="#ln-21"></a><span class="w">  </span><span class="k">call </span><span class="n">timer_start</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="w"></span>
 <a id="ln-22" name="ln-22" href="#ln-22"></a>
-<a id="ln-23" name="ln-23" href="#ln-23"></a><span class="w">  </span><span class="n">Ainv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pinv</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span><span class="w">          </span><span class="c">! Calculate the matrix inverse of A using the &#39;pinv&#39; function</span>
+<a id="ln-23" name="ln-23" href="#ln-23"></a><span class="w">  </span><span class="n">Ainv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span><span class="w">          </span><span class="c">! Calculate the matrix inverse of A using the &#39;inv&#39; function</span>
 <a id="ln-24" name="ln-24" href="#ln-24"></a>
 <a id="ln-25" name="ln-25" href="#ln-25"></a><span class="w">  </span><span class="k">call </span><span class="n">timer_stop</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39; Elapsed time (2000*200 , gesvd):&#39;</span><span class="p">)</span><span class="w"></span>
 <a id="ln-26" name="ln-26" href="#ln-26"></a>
 <a id="ln-27" name="ln-27" href="#ln-27"></a><span class="w">  </span><span class="k">call </span><span class="n">timer_start</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="w"></span>
 <a id="ln-28" name="ln-28" href="#ln-28"></a>
-<a id="ln-29" name="ln-29" href="#ln-29"></a><span class="w">  </span><span class="n">Ainv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pinv</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;getrf&#39;</span><span class="p">)</span><span class="w">          </span><span class="c">! Calculate the matrix inverse of A using the &#39;pinv&#39; function and the getrf method</span>
+<a id="ln-29" name="ln-29" href="#ln-29"></a><span class="w">  </span><span class="n">Ainv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;getrf&#39;</span><span class="p">)</span><span class="w">          </span><span class="c">! Calculate the matrix inverse of A using the &#39;inv&#39; function and the getrf method</span>
 <a id="ln-30" name="ln-30" href="#ln-30"></a>
 <a id="ln-31" name="ln-31" href="#ln-31"></a><span class="w">  </span><span class="k">call </span><span class="n">timer_stop</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39; Elapsed time (2000*200 , getrf):&#39;</span><span class="p">)</span><span class="w"></span>
 <a id="ln-32" name="ln-32" href="#ln-32"></a>
@@ -344,13 +344,13 @@ large graphs.</div>
 <a id="ln-40" name="ln-40" href="#ln-40"></a>
 <a id="ln-41" name="ln-41" href="#ln-41"></a><span class="w">  </span><span class="k">call </span><span class="n">timer_start</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="w"></span>
 <a id="ln-42" name="ln-42" href="#ln-42"></a>
-<a id="ln-43" name="ln-43" href="#ln-43"></a><span class="w">  </span><span class="n">Ainv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pinv</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span><span class="w">           </span><span class="c">! Calculate the matrix inverse of A using the &#39;pinv&#39; function</span>
+<a id="ln-43" name="ln-43" href="#ln-43"></a><span class="w">  </span><span class="n">Ainv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span><span class="w">           </span><span class="c">! Calculate the matrix inverse of A using the &#39;inv&#39; function</span>
 <a id="ln-44" name="ln-44" href="#ln-44"></a>
 <a id="ln-45" name="ln-45" href="#ln-45"></a><span class="w">  </span><span class="k">call </span><span class="n">timer_stop</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39; Elapsed time (2000*1800, gesvd):&#39;</span><span class="p">)</span><span class="w"></span>
 <a id="ln-46" name="ln-46" href="#ln-46"></a>
 <a id="ln-47" name="ln-47" href="#ln-47"></a><span class="w">  </span><span class="k">call </span><span class="n">timer_start</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="w"></span>
 <a id="ln-48" name="ln-48" href="#ln-48"></a>
-<a id="ln-49" name="ln-49" href="#ln-49"></a><span class="w">  </span><span class="n">Ainv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pinv</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;getrf&#39;</span><span class="p">)</span><span class="w">          </span><span class="c">! Calculate the matrix inverse of A using the &#39;pinv&#39; function and the getrf method</span>
+<a id="ln-49" name="ln-49" href="#ln-49"></a><span class="w">  </span><span class="n">Ainv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;getrf&#39;</span><span class="p">)</span><span class="w">          </span><span class="c">! Calculate the matrix inverse of A using the &#39;inv&#39; function and the getrf method</span>
 <a id="ln-50" name="ln-50" href="#ln-50"></a>
 <a id="ln-51" name="ln-51" href="#ln-51"></a><span class="w">  </span><span class="k">call </span><span class="n">timer_stop</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39; Elapsed time (2000*1800, getrf):&#39;</span><span class="p">)</span><span class="w"></span>
 <a id="ln-52" name="ln-52" href="#ln-52"></a>
@@ -378,7 +378,7 @@ large graphs.</div>
             <p class="text-right">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-08-01T20:34:08.898843             </p>
+ on 2023-08-08T07:36:51.146729             </p>
           </div>
         </div>
         <br>
