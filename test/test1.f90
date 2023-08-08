@@ -1,10 +1,10 @@
 program test1
 
-   ! This Fortran test code demonstrates the usage of the pinv function to calculate the matrix inverse&
+   ! This Fortran test code demonstrates the usage of the inv function to calculate the matrix inverse&
    ! and verifies the results by comparing them with expected values obtained from MATLAB.
 
    use kinds                ! Import the module 'kinds' for precision types
-   use forinv, only: pinv   ! Import only the 'pinv' function from the 'forinv' module
+   use forinv, only: inv    ! Import only the 'inv' function from the 'forinv' module
 
    implicit none
 
@@ -22,7 +22,7 @@ program test1
 
 
    !===============================================================================
-   ! Define expected matrix AinvM=pinv(A) from MATLAB results
+   ! Define expected matrix AinvM=inv(A) from MATLAB results
    AinvM(1,1) = -11.8748418966254_rk ;  AinvM(1,2) = -1.88508351433968_rk;  AinvM(1,3) = 1.37910840173057_rk ;  AinvM(1,4) = 13.3647936345720_rk
    AinvM(2,1) = -0.232262684677810_rk;  AinvM(2,2) = -1.81026044323168_rk;  AinvM(2,3) = 1.12793815267075_rk ;  AinvM(2,4) = 1.84558847033752_rk
    AinvM(3,1) = 11.2481704396877_rk  ;  AinvM(3,2) = 2.87726069020400_rk ;  AinvM(3,3) = -1.70926059704099_rk;  AinvM(3,4) = -12.6490061903496_rk
@@ -30,8 +30,8 @@ program test1
 
 
    !===============================================================================
-   ! Calculate the matrix inverse of A using the 'pinv' function
-   Ainv = pinv(A)
+   ! Calculate the matrix inverse of A using the 'inv' function
+   Ainv = inv(A)
    !===============================================================================
 
 
