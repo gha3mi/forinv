@@ -9,7 +9,7 @@ module forinv
 
    private
 
-   public :: pinv
+   public :: inv
 
    !===============================================================================
    interface inv
