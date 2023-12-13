@@ -10,109 +10,88 @@
 
     <title>test3 &ndash; ForInv</title>
 
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="../css/pygments.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
       <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
-         <script src="../js/jquery-2.1.3.min.js"></script>
-         <script src="../js/svg-pan-zoom.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
   </head>
 
   <body>
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
           <a class="navbar-brand" href="../index.html">ForInv <small>0.2.0</small></a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
-              <a href="#" class="dropdown-toggle"
-                 data-toggle="dropdown" role="button"
-                 aria-haspopup="true"
-                 aria-expanded="false">
-                 Contents <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                    <li><a href="../lists/files.html">Source Files</a></li>
-                  <li><a href="../lists/modules.html">Modules</a></li>
-                  <li><a href="../lists/procedures.html">Procedures</a></li>
-                  <li><a href="../lists/programs.html">Programs</a></li>
-              </ul>
-            </li>
-                <li class="visible-xs hidden-sm visible-lg">
-                  <a href="../lists/files.html">Source Files</a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
                 </li>
-              <li class="visible-xs hidden-sm visible-lg">
-                <a href="../lists/modules.html">Modules</a>
-              </li>
-              <li class="visible-xs hidden-sm visible-lg">
-                <a href="../lists/procedures.html">Procedures</a>
-              </li>
-              <li class="visible-xs hidden-sm visible-lg">
-                <a href="../lists/programs.html">Programs</a>
-              </li>
-          </ul>
-            <form action="../search.html" class="navbar-form navbar-right" role="search">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
               </div>
-              <!--
-                  <button type="submit" class="btn btn-default">Submit</button>
-                  -->
-            </form>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
 
     <div class="container">
   <div class="row">
     <h1>test3      <small>Program</small>
       
     </h1>
-      <div class="row" id="info-bar">
-    <div class="col-lg-12">
-      <div class="well well-sm">
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
 
-          <li id="statements"><i class="fa fa-list-ol"></i>
-            <a data-toggle="tooltip"
-               data-placement="bottom" data-html="true"
-               title="33.3% of total for programs.">34 statements</a>
-          </li>
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title="33.3% of total for programs.">34 statements</a>
+            </li>
 
-            <li id="source-file">
+            <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
               <a href="../src/test3.f90"> Source File</a>
             </li>
         </ul>
-        <ol class="breadcrumb in-well text-right">
-              <li><a href='../sourcefile/test3.f90.html'>test3.f90</a></li>
-          <li class="active">test3</li>
-        </ol>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/test3.f90.html'>test3.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">test3</li>
+          </ol>
+        </nav>
       </div>
     </div>
   </div>
   <script>
     $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-bs-toggle="tooltip"]').tooltip()
     })
   </script>
 
@@ -123,18 +102,17 @@
       <div id="sidebar">
       <h3>Contents</h3>
   
-      <div class="panel panel-primary">
-      <div class="panel-heading text-left">
-        <h3 class="panel-title">
-          <a data-toggle="collapse" href="#vars-0">Variables</a>
-        </h3>
-      </div>
-      <div id="vars-0" class="panel-collapse collapse">
-        <div class="list-group">
-            <a class="list-group-item" href="../program/test3.html#variable-a~6">A</a>
-            <a class="list-group-item" href="../program/test3.html#variable-ainv~2">Ainv</a>
-            <a class="list-group-item" href="../program/test3.html#variable-m">m</a>
-            <a class="list-group-item" href="../program/test3.html#variable-n">n</a>
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/test3.html#variable-a~8">A</a>
+            <a class="list-group-item" href="../program/test3.html#variable-ainv~3">Ainv</a>
+            <a class="list-group-item" href="../program/test3.html#variable-m~2">m</a>
+            <a class="list-group-item" href="../program/test3.html#variable-n~2">n</a>
             <a class="list-group-item" href="../program/test3.html#variable-w">w</a>
         </div>
       </div>
@@ -157,8 +135,9 @@
   
   
   
-    <div class="panel panel-primary">
-      <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
       <div class="list-group">
         <a class="list-group-item" href="../program/test3.html#src">test3</a>
       </div>
@@ -170,20 +149,19 @@
     </div>
     
     <div class="col-md-9" id='text'>
-        <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Uses</h3>
-      </div>
-      <ul class="list-group">
-          <li class="list-group-item">
-            <ul class="list-inline">
-                <li><a href='../module/forinv.html'>forinv</a></li>
-                <li>kinds</li>
-                <li>fortime</li>
-            </ul>
-          </li>
-          <li class="list-group-item">
-            <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/forinv.html'>forinv</a></li>
+                  <li class="list-inline-item">kinds</li>
+                  <li class="list-inline-item">fortime</li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -259,8 +237,8 @@
 </g>
 </g>
 </svg>
-</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
-          <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#UsesGraph-help-text">Help</a></div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -331,140 +309,165 @@ large graphs.</div>
             </div>
           </div>
         </div>
-          </li>
-      </ul>
+            </li>
+        </ul>
+      </div>
     </div>
 
     
     <br>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-  <h3 class="panel-title">Calls</h3>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
       </div>
-      <div class="panel-body">
+      <div class="card-body">
   <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: program~~test3~~CallsGraph Pages: 1 -->
-<svg id="programtest3CallsGraph" width="578pt" height="116pt"
- viewBox="0.00 0.00 578.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="program~~test3~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<svg id="programtest3CallsGraph" width="581pt" height="179pt"
+ viewBox="0.00 0.00 581.00 179.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~test3~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 175)">
 <title>program~~test3~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 574,-112 574,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-175 577,-175 577,4 -4,4"/>
 <!-- program~test3 -->
 <g id="program~~test3~~CallsGraph_node1" class="node">
 <title>program~test3</title>
-<polygon fill="none" stroke="black" points="54,-45 0,-45 0,-21 54,-21 54,-45"/>
-<text text-anchor="middle" x="27" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">test3</text>
+<polygon fill="none" stroke="black" points="54,-66 0,-66 0,-42 54,-42 54,-66"/>
+<text text-anchor="middle" x="27" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50">test3</text>
 </g>
 <!-- interface~inv -->
 <g id="program~~test3~~CallsGraph_node2" class="node">
 <title>interface~inv</title>
 <g id="a_program~~test3~~CallsGraph_node2"><a xlink:href=".././interface/inv.html" xlink:title="forinv::inv">
-<polygon fill="#a7506f" stroke="#a7506f" points="157,-45 90,-45 90,-21 157,-21 157,-45"/>
-<text text-anchor="middle" x="123.5" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forinv::inv</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="158.5,-108 91.5,-108 91.5,-84 158.5,-84 158.5,-108"/>
+<text text-anchor="middle" x="125" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forinv::inv</text>
 </a>
 </g>
 </g>
 <!-- program~test3&#45;&gt;interface~inv -->
 <g id="program~~test3~~CallsGraph_edge1" class="edge">
 <title>program~test3&#45;&gt;interface~inv</title>
-<path fill="none" stroke="#255000" d="M54.07,-33C62,-33 70.94,-33 79.67,-33"/>
-<polygon fill="#255000" stroke="#255000" points="79.76,-36.5 89.76,-33 79.76,-29.5 79.76,-36.5"/>
+<path fill="none" stroke="#255000" d="M54.23,-65.48C64.37,-69.91 76.14,-75.06 87.1,-79.86"/>
+<polygon fill="#255000" stroke="#255000" points="85.89,-83.15 96.46,-83.95 88.7,-76.74 85.89,-83.15"/>
+</g>
+<!-- timer_start -->
+<g id="program~~test3~~CallsGraph_node3" class="node">
+<title>timer_start</title>
+<polygon fill="#777777" stroke="#777777" points="160,-66 90,-66 90,-42 160,-42 160,-66"/>
+<text text-anchor="middle" x="125" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">timer_start</text>
+</g>
+<!-- program~test3&#45;&gt;timer_start -->
+<g id="program~~test3~~CallsGraph_edge2" class="edge">
+<title>program~test3&#45;&gt;timer_start</title>
+<path fill="none" stroke="#255000" d="M54.23,-54C62.13,-54 71.03,-54 79.76,-54"/>
+<polygon fill="#255000" stroke="#255000" points="79.87,-57.5 89.87,-54 79.87,-50.5 79.87,-57.5"/>
+</g>
+<!-- timer_stop -->
+<g id="program~~test3~~CallsGraph_node4" class="node">
+<title>timer_stop</title>
+<polygon fill="#777777" stroke="#777777" points="159.5,-24 90.5,-24 90.5,0 159.5,0 159.5,-24"/>
+<text text-anchor="middle" x="125" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">timer_stop</text>
+</g>
+<!-- program~test3&#45;&gt;timer_stop -->
+<g id="program~~test3~~CallsGraph_edge3" class="edge">
+<title>program~test3&#45;&gt;timer_stop</title>
+<path fill="none" stroke="#255000" d="M54.23,-42.52C64.37,-38.09 76.14,-32.94 87.1,-28.14"/>
+<polygon fill="#255000" stroke="#255000" points="88.7,-31.26 96.46,-24.05 85.89,-24.85 88.7,-31.26"/>
 </g>
 <!-- proc~pinv_rel -->
-<g id="program~~test3~~CallsGraph_node3" class="node">
+<g id="program~~test3~~CallsGraph_node5" class="node">
 <title>proc~pinv_rel</title>
-<g id="a_program~~test3~~CallsGraph_node3"><a xlink:href=".././proc/pinv_rel.html" xlink:title="forinv::pinv_rel">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="285,-45 193,-45 193,-21 285,-21 285,-45"/>
-<text text-anchor="middle" x="239" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forinv::pinv_rel</text>
+<g id="a_program~~test3~~CallsGraph_node5"><a xlink:href=".././proc/pinv_rel.html" xlink:title="forinv::pinv_rel">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="288,-108 196,-108 196,-84 288,-84 288,-108"/>
+<text text-anchor="middle" x="242" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forinv::pinv_rel</text>
 </a>
 </g>
 </g>
 <!-- interface~inv&#45;&gt;proc~pinv_rel -->
-<g id="program~~test3~~CallsGraph_edge2" class="edge">
+<g id="program~~test3~~CallsGraph_edge4" class="edge">
 <title>interface~inv&#45;&gt;proc~pinv_rel</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M157.02,-33C165.03,-33 173.82,-33 182.58,-33"/>
-<polygon fill="#255000" stroke="#255000" points="182.78,-36.5 192.78,-33 182.78,-29.5 182.78,-36.5"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M158.65,-96C167.13,-96 176.51,-96 185.81,-96"/>
+<polygon fill="#255000" stroke="#255000" points="185.82,-99.5 195.82,-96 185.82,-92.5 185.82,-99.5"/>
 </g>
 <!-- proc~pinvlu_rel -->
-<g id="program~~test3~~CallsGraph_node4" class="node">
+<g id="program~~test3~~CallsGraph_node6" class="node">
 <title>proc~pinvlu_rel</title>
-<g id="a_program~~test3~~CallsGraph_node4"><a xlink:href=".././proc/pinvlu_rel.html" xlink:title="forinv::pinvLU_rel">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="431,-66 326,-66 326,-42 431,-42 431,-66"/>
-<text text-anchor="middle" x="378.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forinv::pinvLU_rel</text>
+<g id="a_program~~test3~~CallsGraph_node6"><a xlink:href=".././proc/pinvlu_rel.html" xlink:title="forinv::pinvLU_rel">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="434,-129 329,-129 329,-105 434,-105 434,-129"/>
+<text text-anchor="middle" x="381.5" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forinv::pinvLU_rel</text>
 </a>
 </g>
 </g>
 <!-- proc~pinv_rel&#45;&gt;proc~pinvlu_rel -->
-<g id="program~~test3~~CallsGraph_edge3" class="edge">
+<g id="program~~test3~~CallsGraph_edge5" class="edge">
 <title>proc~pinv_rel&#45;&gt;proc~pinvlu_rel</title>
-<path fill="none" stroke="#255000" d="M285.02,-39.88C294.77,-41.37 305.25,-42.97 315.52,-44.53"/>
-<polygon fill="#255000" stroke="#255000" points="315.28,-48.04 325.69,-46.09 316.34,-41.12 315.28,-48.04"/>
+<path fill="none" stroke="#255000" d="M288.02,-102.88C297.77,-104.37 308.25,-105.97 318.52,-107.53"/>
+<polygon fill="#255000" stroke="#255000" points="318.28,-111.04 328.69,-109.09 319.34,-104.12 318.28,-111.04"/>
 </g>
 <!-- proc~pinvsvd_rel -->
-<g id="program~~test3~~CallsGraph_node5" class="node">
+<g id="program~~test3~~CallsGraph_node7" class="node">
 <title>proc~pinvsvd_rel</title>
-<g id="a_program~~test3~~CallsGraph_node5"><a xlink:href=".././proc/pinvsvd_rel.html" xlink:title="forinv::pinvSVD_rel">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="436,-24 321,-24 321,0 436,0 436,-24"/>
-<text text-anchor="middle" x="378.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forinv::pinvSVD_rel</text>
+<g id="a_program~~test3~~CallsGraph_node7"><a xlink:href=".././proc/pinvsvd_rel.html" xlink:title="forinv::pinvSVD_rel">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="439,-87 324,-87 324,-63 439,-63 439,-87"/>
+<text text-anchor="middle" x="381.5" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forinv::pinvSVD_rel</text>
 </a>
 </g>
 </g>
 <!-- proc~pinv_rel&#45;&gt;proc~pinvsvd_rel -->
-<g id="program~~test3~~CallsGraph_edge4" class="edge">
+<g id="program~~test3~~CallsGraph_edge6" class="edge">
 <title>proc~pinv_rel&#45;&gt;proc~pinvsvd_rel</title>
-<path fill="none" stroke="#255000" d="M285.02,-26.12C293.24,-24.87 301.98,-23.53 310.67,-22.21"/>
-<polygon fill="#255000" stroke="#255000" points="311.47,-25.63 320.82,-20.66 310.41,-18.71 311.47,-25.63"/>
+<path fill="none" stroke="#255000" d="M288.02,-89.12C296.24,-87.87 304.98,-86.53 313.67,-85.21"/>
+<polygon fill="#255000" stroke="#255000" points="314.47,-88.63 323.82,-83.66 313.41,-81.71 314.47,-88.63"/>
 </g>
 <!-- proc~gemm -->
-<g id="program~~test3~~CallsGraph_node6" class="node">
+<g id="program~~test3~~CallsGraph_node8" class="node">
 <title>proc~gemm</title>
-<g id="a_program~~test3~~CallsGraph_node6"><a xlink:href=".././proc/gemm.html" xlink:title="forinv::gemm">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="563.5,-108 478.5,-108 478.5,-84 563.5,-84 563.5,-108"/>
-<text text-anchor="middle" x="521" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forinv::gemm</text>
+<g id="a_program~~test3~~CallsGraph_node8"><a xlink:href=".././proc/gemm.html" xlink:title="forinv::gemm">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="566.5,-171 481.5,-171 481.5,-147 566.5,-147 566.5,-171"/>
+<text text-anchor="middle" x="524" y="-156.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forinv::gemm</text>
 </a>
 </g>
 </g>
 <!-- proc~pinvlu_rel&#45;&gt;proc~gemm -->
-<g id="program~~test3~~CallsGraph_edge5" class="edge">
+<g id="program~~test3~~CallsGraph_edge7" class="edge">
 <title>proc~pinvlu_rel&#45;&gt;proc~gemm</title>
-<path fill="none" stroke="#255000" d="M419.76,-66.04C435.34,-70.69 453.34,-76.07 469.75,-80.98"/>
-<polygon fill="#255000" stroke="#255000" points="469.15,-84.45 479.73,-83.96 471.15,-77.75 469.15,-84.45"/>
+<path fill="none" stroke="#255000" d="M422.76,-129.04C438.34,-133.69 456.34,-139.07 472.75,-143.98"/>
+<polygon fill="#255000" stroke="#255000" points="472.15,-147.45 482.73,-146.96 474.15,-140.75 472.15,-147.45"/>
 </g>
 <!-- proc~invlu_rel -->
-<g id="program~~test3~~CallsGraph_node7" class="node">
+<g id="program~~test3~~CallsGraph_node9" class="node">
 <title>proc~invlu_rel</title>
-<g id="a_program~~test3~~CallsGraph_node7"><a xlink:href=".././proc/invlu_rel.html" xlink:title="forinv::invLU_rel">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="570,-66 472,-66 472,-42 570,-42 570,-66"/>
-<text text-anchor="middle" x="521" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forinv::invLU_rel</text>
+<g id="a_program~~test3~~CallsGraph_node9"><a xlink:href=".././proc/invlu_rel.html" xlink:title="forinv::invLU_rel">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="573,-129 475,-129 475,-105 573,-105 573,-129"/>
+<text text-anchor="middle" x="524" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forinv::invLU_rel</text>
 </a>
 </g>
 </g>
 <!-- proc~pinvlu_rel&#45;&gt;proc~invlu_rel -->
-<g id="program~~test3~~CallsGraph_edge6" class="edge">
+<g id="program~~test3~~CallsGraph_edge8" class="edge">
 <title>proc~pinvlu_rel&#45;&gt;proc~invlu_rel</title>
-<path fill="none" stroke="#255000" d="M431.02,-54C441,-54 451.53,-54 461.72,-54"/>
-<polygon fill="#255000" stroke="#255000" points="461.76,-57.5 471.76,-54 461.76,-50.5 461.76,-57.5"/>
+<path fill="none" stroke="#255000" d="M434.02,-117C444,-117 454.53,-117 464.72,-117"/>
+<polygon fill="#255000" stroke="#255000" points="464.76,-120.5 474.76,-117 464.76,-113.5 464.76,-120.5"/>
 </g>
 <!-- svd -->
-<g id="program~~test3~~CallsGraph_node8" class="node">
+<g id="program~~test3~~CallsGraph_node10" class="node">
 <title>svd</title>
-<polygon fill="#777777" stroke="#777777" points="548,-24 494,-24 494,0 548,0 548,-24"/>
-<text text-anchor="middle" x="521" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">svd</text>
+<polygon fill="#777777" stroke="#777777" points="551,-87 497,-87 497,-63 551,-63 551,-87"/>
+<text text-anchor="middle" x="524" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">svd</text>
 </g>
 <!-- proc~pinvsvd_rel&#45;&gt;svd -->
-<g id="program~~test3~~CallsGraph_edge7" class="edge">
+<g id="program~~test3~~CallsGraph_edge9" class="edge">
 <title>proc~pinvsvd_rel&#45;&gt;svd</title>
-<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M436.24,-12C452.3,-12 469.33,-12 483.82,-12"/>
-<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="483.87,-15.5 493.87,-12 483.87,-8.5 483.87,-15.5"/>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M439.24,-75C455.3,-75 472.33,-75 486.82,-75"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="486.87,-78.5 496.87,-75 486.87,-71.5 486.87,-78.5"/>
 </g>
 </g>
 </svg>
-</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
-          <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CallsGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -481,11 +484,11 @@ large graphs.</div>
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: Graph Key Pages: 1 -->
-<svg width="597pt" height="32pt"
- viewBox="0.00 0.00 596.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
 <title>Graph Key</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 592.5,-28 592.5,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
 <!-- Subroutine -->
 <g id="node1" class="node">
 <title>Subroutine</title>
@@ -504,23 +507,29 @@ large graphs.</div>
 <polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
 <text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
 </g>
-<!-- Unknown Procedure Type -->
+<!-- Type Bound Procedure -->
 <g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
 <title>Unknown Procedure Type</title>
-<polygon fill="#777777" stroke="#777777" points="388.5,-24 243.5,-24 243.5,0 388.5,0 388.5,-24"/>
-<text text-anchor="middle" x="316" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
 </g>
 <!-- Program -->
-<g id="node5" class="node">
+<g id="node6" class="node">
 <title>Program</title>
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="465,-24 407,-24 407,0 465,0 465,-24"/>
-<text text-anchor="middle" x="436" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
 </g>
 <!-- This Page&#39;s Entity -->
-<g id="node6" class="node">
+<g id="node7" class="node">
 <title>This Page&#39;s Entity</title>
-<polygon fill="none" stroke="black" points="588.5,-24 483.5,-24 483.5,0 588.5,0 588.5,-24"/>
-<text text-anchor="middle" x="536" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
 </g>
 </g>
 </svg>
@@ -539,70 +548,22 @@ large graphs.</div>
       </div>
     </div>
 <br>
-     <section class="visible-xs visible-sm hidden-md">
-         <h3>Contents</h3>
-  
-      <div class="panel panel-primary">
-      <div class="panel-heading text-left">
-        <h3 class="panel-title">
-          <a data-toggle="collapse" href="#vars-1">Variables</a>
-        </h3>
-      </div>
-      <div id="vars-1" class="panel-collapse collapse">
-        <div class="list-group">
-            <a class="list-group-item" href="../program/test3.html#variable-a~6">A</a>
-            <a class="list-group-item" href="../program/test3.html#variable-ainv~2">Ainv</a>
-            <a class="list-group-item" href="../program/test3.html#variable-m">m</a>
-            <a class="list-group-item" href="../program/test3.html#variable-n">n</a>
-            <a class="list-group-item" href="../program/test3.html#variable-w">w</a>
-        </div>
-      </div>
-    </div>
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    <div class="panel panel-primary">
-      <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-      <div class="list-group">
-        <a class="list-group-item" href="../program/test3.html#src">test3</a>
-      </div>
-    </div>
-
-
-     </section>
-     <br class="visible-xs visible-sm hidden-md">
-
 
     <section>
     <h2>Variables</h2>
       <table class="table table-striped varlist">
     <thead>
       <tr>
-        <th>Type</th>
-        <th>Attributes</th>
-        <th></th>
-        <th>Name</th>
-<th></th><th>Initial</th>        <th></th>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
     </thead>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~6"></span>
+              <span class="anchor" id="variable-a~8"></span>
               real(kind=rk),
             </td>
             <td>
@@ -618,7 +579,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ainv~2"></span>
+              <span class="anchor" id="variable-ainv~3"></span>
               real(kind=rk),
             </td>
             <td>
@@ -634,7 +595,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-m"></span>
+              <span class="anchor" id="variable-m~2"></span>
               integer
             </td>
             <td>
@@ -650,7 +611,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-n"></span>
+              <span class="anchor" id="variable-n~2"></span>
               integer
             </td>
             <td>
@@ -693,16 +654,17 @@ large graphs.</div>
 
 
     
+
     <section>
     <h2 id="src">Source Code</h2>
-    <div class="highlight"><pre><span></span><span class="k">program </span><span class="n">test3</span><span class="w"></span>
+    <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">test3</span>
 
 <span class="w">  </span><span class="c">! This Fortran test code demonstrates the usage of the inv function to calculate the matrix inverse</span>
 <span class="w">  </span><span class="c">! of a randomly generated matrix.</span>
 
 <span class="w">  </span><span class="k">use </span><span class="n">kinds</span><span class="w">                 </span><span class="c">! Import the module &#39;kinds&#39; for precision types</span>
 <span class="w">  </span><span class="k">use </span><span class="n">forinv</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">inv</span><span class="w">     </span><span class="c">! Import only the &#39;inv&#39; function from the &#39;forinv&#39; module</span>
-<span class="w">  </span><span class="k">use </span><span class="n">fortime</span><span class="w"></span>
+<span class="w">  </span><span class="k">use </span><span class="n">fortime</span>
 
 <span class="w">  </span><span class="k">implicit none</span>
 
@@ -715,17 +677,17 @@ large graphs.</div>
 <span class="w">  </span><span class="k">allocate</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">))</span><span class="w">            </span><span class="c">! Allocate memory for matrix A</span>
 <span class="w">  </span><span class="k">call </span><span class="nb">random_number</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w">       </span><span class="c">! Fill matrix A with random numbers between 0 and 1</span>
 
-<span class="w">  </span><span class="k">call </span><span class="n">timer_start</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="k">call </span><span class="n">timer_start</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
 
 <span class="w">  </span><span class="n">Ainv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span><span class="w">          </span><span class="c">! Calculate the matrix inverse of A using the &#39;inv&#39; function</span>
 
-<span class="w">  </span><span class="k">call </span><span class="n">timer_stop</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39; Elapsed time (2000*200 , gesvd):&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="k">call </span><span class="n">timer_stop</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39; Elapsed time (2000*200 , gesvd):&#39;</span><span class="p">)</span>
 
-<span class="w">  </span><span class="k">call </span><span class="n">timer_start</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="k">call </span><span class="n">timer_start</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
 
 <span class="w">  </span><span class="n">Ainv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;getrf&#39;</span><span class="p">)</span><span class="w">          </span><span class="c">! Calculate the matrix inverse of A using the &#39;inv&#39; function and the getrf method</span>
 
-<span class="w">  </span><span class="k">call </span><span class="n">timer_stop</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39; Elapsed time (2000*200 , getrf):&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="k">call </span><span class="n">timer_stop</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39; Elapsed time (2000*200 , getrf):&#39;</span><span class="p">)</span>
 
 <span class="w">  </span><span class="k">deallocate</span><span class="p">(</span><span class="n">Ainv</span><span class="p">)</span><span class="w">            </span><span class="c">! Deallocate memory for matrix Ainv</span>
 <span class="w">  </span><span class="k">deallocate</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w">               </span><span class="c">! Deallocate memory for matrix A</span>
@@ -735,24 +697,24 @@ large graphs.</div>
 <span class="w">  </span><span class="k">allocate</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">))</span><span class="w">            </span><span class="c">! Allocate memory for matrix A</span>
 <span class="w">  </span><span class="k">call </span><span class="nb">random_number</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w">       </span><span class="c">! Fill matrix A with random numbers between 0 and 1</span>
 
-<span class="w">  </span><span class="k">call </span><span class="n">timer_start</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="k">call </span><span class="n">timer_start</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
 
 <span class="w">  </span><span class="n">Ainv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span><span class="w">           </span><span class="c">! Calculate the matrix inverse of A using the &#39;inv&#39; function</span>
 
-<span class="w">  </span><span class="k">call </span><span class="n">timer_stop</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39; Elapsed time (2000*1800, gesvd):&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="k">call </span><span class="n">timer_stop</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39; Elapsed time (2000*1800, gesvd):&#39;</span><span class="p">)</span>
 
-<span class="w">  </span><span class="k">call </span><span class="n">timer_start</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="k">call </span><span class="n">timer_start</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
 
 <span class="w">  </span><span class="n">Ainv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;getrf&#39;</span><span class="p">)</span><span class="w">          </span><span class="c">! Calculate the matrix inverse of A using the &#39;inv&#39; function and the getrf method</span>
 
-<span class="w">  </span><span class="k">call </span><span class="n">timer_stop</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39; Elapsed time (2000*1800, getrf):&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="k">call </span><span class="n">timer_stop</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39; Elapsed time (2000*1800, getrf):&#39;</span><span class="p">)</span>
 
 <span class="w">  </span><span class="k">deallocate</span><span class="p">(</span><span class="n">Ainv</span><span class="p">)</span><span class="w">            </span><span class="c">! Deallocate memory for matrix Ainv</span>
 <span class="w">  </span><span class="k">deallocate</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="w">               </span><span class="c">! Deallocate memory for matrix A</span>
 
-<span class="w">  </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Test 3 passed.&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Test 3 passed.&quot;</span>
 
-<span class="k">end program </span><span class="n">test3</span><span class="w"></span>
+<span class="k">end program </span><span class="n">test3</span>
 </pre></div>
 
     </section>
@@ -764,32 +726,27 @@ large graphs.</div>
     </div> <!-- /container -->
     <footer>
       <div class="container">
-        <div class="row">
-          <div class="col-xs-6 col-md-6"><p>ForInv was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+        <div class="row justify-content-between">
+          <div class="col"><p>ForInv was developed by Seyed Ali Ghasemi<br>&copy; 2023 
 </p>
           </div>
-          <div class="col-xs-6 col-md-6">
-            <p class="text-right">
+          <div class="col">
+            <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-08-15T21:52:12.587008             </p>
+ on 2023-12-13T09:57:06.463656             </p>
           </div>
         </div>
         <br>
       </div> <!-- /container -->
     </footer>
 
-    <!-- Bootstrap core JavaScript
-         ================================================== -->
-         <!-- Placed at the end of the document so the pages load faster -->
-    <!--
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        -->
-        <script src="../js/bootstrap.min.js"></script>
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="../js/ie10-viewport-bug-workaround.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
 
-        <!-- MathJax JavaScript
+    <!-- MathJax JavaScript
              ================================================== -->
              <!-- Placed at the end of the document so the pages load faster -->
         <script type="text/x-mathjax-config">
